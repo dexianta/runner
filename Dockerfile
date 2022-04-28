@@ -6,7 +6,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 
+######################
 ## miniconda 3.8
+######################
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 RUN apt-get update --fix-missing && \
@@ -21,7 +23,9 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py38_4.11.0-Linu
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
+######################
 ## golang 1.17
+######################
 RUN wget https://go.dev/dl/go1.17.9.linux-amd64.tar.gz \
 	&& rm -rf /usr/local/go \
 	&& tar -C /usr/local -xzf go1.17.9.linux-amd64.tar.gz
